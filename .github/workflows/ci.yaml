@@ -1,0 +1,14 @@
+name: Run my tests
+
+on: [push]   # trigger: every time code is pushed
+
+jobs:
+  test:
+    runs-on: ubuntu-latest   # a free computer GitHub lends you
+    steps:
+      - uses: actions/checkout@v4        # grab your code
+      - uses: actions/setup-python@v5    # install Python
+        with:
+          python-version: '3.12'
+      - run: pip install pytest          # install the testing tool
+      - run: pytest                      # run all your tests
